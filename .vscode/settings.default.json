@@ -1,0 +1,15 @@
+{
+    "files.insertFinalNewline": true,
+    "debug.internalConsoleOptions": "openOnSessionStart",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always"
+    },
+    "editor.rulers": [80, 120],
+    "[dart]": {
+        "editor.selectionHighlight": false,
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off"
+    }
+}

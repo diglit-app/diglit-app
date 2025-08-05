@@ -1,0 +1,134 @@
+name: diglit
+description: >
+  A digital literacy learning app for critical thinking and responsible online
+  engagement.
+
+# Prevent accidental publishing to pub.dev with `flutter pub publish`.
+# Preferred for private packages. Remove to publish.
+publish_to: "none"
+
+# Set the app version: major.minor.patch+build
+#
+# Example: 1.2.43 followed by an optional number separated by a '+'.
+# Override with: flutter build --build-name <name> --build-number <number>
+# Android: build-name -> versionName, build-number -> versionCode
+# iOS: build-name -> CFBundleShortVersionString, build-number -> CFBundleVersion
+#
+# Learn more:
+#   Android: https://developer.android.com/studio/publish/versioning
+#   iOS: https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 0.1.0+1
+
+# Specify the Dart SDK version range your package supports.
+#
+# Format: ^minVersion -> >= minVersion and < next major version.
+# Example: ^2.12.0 -> >=2.12.0 and <3.0.0
+# Use a single version (e.g., 2.12.0) for an exact match.
+#
+# Learn more:
+#   Dart SDK: https://dart.dev/tools/sdk#version
+#   Flutter SDK: https://flutter.dev/docs/development/tools
+environment:
+  sdk: ^3.8.1
+
+# Specify runtime dependencies for your package. Packages are collections of
+# code, assets, or both that provide functionality your package or app can use.
+# Dependencies are the packages your package needs to work.
+# To upgrade dependencies to the latest versions, run:
+#   flutter pub upgrade --major-versions
+# Alternatively, update the version numbers below manually.
+# To see available updates, run: flutter pub outdated
+#
+# Format: ^minVersion -> >= minVersion and < next major version.
+# Example: ^2.12.0 -> >=2.12.0 and <3.0.0
+# Use a single version (e.g., 2.12.0) for an exact match.
+dependencies:
+  # Add the Flutter SDK as a dependency. Flutter is a framework for building
+  # natively compiled applications for mobile, web, and desktop from a single
+  # codebase. It includes pre-built widgets, a powerful rendering engine,
+  # APIs for device features, and tools for building, testing, and deploying
+  # apps.
+  flutter:
+    sdk: flutter
+
+  # Add the Logger package for flexible logging in Dart and Flutter apps.
+  # Supports log levels, custom formatting, and output to console, files, or
+  # servers.
+  logger: ^2.6.1
+
+  # Add the Riverpod package (Flutter bindings) for state management and
+  # dependency injection. Riverpod offers compile-time safety, automatic
+  # disposal, reactive updates, and built-in error handling with caching.
+  flutter_riverpod: ^2.6.1
+
+  # Add Flutter Localizations for built-in internationalization (i18n) and
+  # localization (l10n).
+  # Includes translations for Material and Cupertino widgets in many languages.
+  # Use with the `intl` package to format text, dates, times, numbers, and
+  # currencies
+  # based on the user's locale.
+  # Learn more:
+  #   https://flutter.dev/docs/development/accessibility-and-localization
+  flutter_localizations:
+    sdk: flutter
+
+  # Add the Intl package for formatting messages, dates, times, numbers, and
+  # plurals.
+  # Works with Flutter Localizations to fully localize your app.
+  intl: ^0.20.2
+
+  # Add the Cupertino Icons font for iOS style icons.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+
+# Specify development dependencies for your package. Packages are collections
+# of code, assets, or both that provide functionality your package or app can
+# use.
+# Dependencies are the packages your package needs to work.
+# To upgrade dependencies to the latest versions, run:
+#   flutter pub upgrade --major-versions
+# Alternatively, update the version numbers below manually.
+# To see available updates, run: flutter pub outdated
+#
+# Format: ^minVersion -> >= minVersion and < next major version.
+# Example: ^2.12.0 -> >=2.12.0 and <3.0.0
+# Use a single version (e.g., 2.12.0) for an exact match.
+dev_dependencies:
+  # Add Flutter's built-in testing framework for unit and widget tests.
+  flutter_test:
+    sdk: flutter
+
+  # Add Mocktail for mocking in tests inspired by Mockito.
+  # Use to create mocks, verify calls, and control dependency behavior in tests.
+  # Works with `flutter_test` for unit testing.
+  mocktail: ^1.0.4
+
+  # Add Flutter Lints for recommended code quality rules and best practices.
+  # Lints are activated in `analysis_options.yaml`. Customize them as needed.
+  flutter_lints: ^6.0.0
+
+  # Add Build Runner to run code generation tasks (e.g., Freezed, Riverpod,
+  # JSON).
+  # Watches for file changes and regenerates code automatically.
+  # More info: https://pub.dev/packages/build_runner
+  build_runner: ^2.5.4
+
+  # Add Freezed to generate immutable classes with `copyWith`, `==`,
+  # `hashCode`, etc.
+  # Supports sealed classes for state modeling (e.g., loading, success, error).
+  freezed: ^3.1.0
+
+  # Add Freezed Annotation to mark classes for code generation with Freezed.
+  freezed_annotation: ^3.1.0
+
+  # Add Riverpod Generator to auto-generate providers and Notifiers for
+  # Riverpod.
+  # Reduces boilerplate. Works with `riverpod_annotation` and `build_runner`.
+  riverpod_generator: ^2.6.5
+
+# Specify the Flutter packages for your project. The following section is
+# specific to Flutter packages.
+flutter:
+  # Ensure the Material Icons font is included so you can use icons
+  # from the Material Icons class.
+  uses-material-design: true

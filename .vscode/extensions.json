@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "Dart-Code.flutter",
+        "usernamehw.errorlens",
+        "marcelovelasquez.flutter-tree",
+        "jeroen-meijer.pubspec-assist",
+        "hzgood.dart-data-class-generator",
+        "gmlewis-vscode.flutter-stylizer",
+        "aaron-bond.better-comments",
+        "naumovs.color-highlight",
+        "DavidAnson.vscode-markdownlint",
+        "hirantha.json-to-dart"
+    ]
+}
