@@ -1,0 +1,153 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  # Plugins extend the capabilities of the Dart analyzer.
+  # 'custom_lint' allows you to define or use project-specific lint rules
+  # beyond the default ones provided by the Dart/Flutter SDK or flutter_lints.
+  plugins:
+    - custom_lint
+
+  # Make type inference stricter and catch more mistakes early.
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+  # Elevate or demote diagnostics. (Keys here are analyzer codes or lint names.)
+  errors:
+    # Treat common correctness issues as hard errors:
+    missing_required_param: error
+    missing_return: error
+    invalid_use_of_visible_for_testing_member: error
+    # Discourage debug-only prints and sloppy APIs:
+    avoid_print: error
+    only_throw_errors: error
+    # Downgrade noisy-but-useful checks (tune to taste):
+    dead_code: warning
+    deprecated_member_use_from_same_package: warning
+    unused_import: warning
+
+  # Exclude generated and vendor code from analysis.
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.gen.dart"
+    - "**/generated_plugin_registrant.dart"
+    - "lib/**.mocks.dart"
+    - "ios/Runner/GeneratedPluginRegistrant.*"
+    - "android/app/**/GeneratedPluginRegistrant.*"
+    - "build/**"
+    - ".dart_tool/**"
+
+linter:
+  # The lint rules applied to this project can be customized in the
+  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
+  # included above or to enable additional rules. A list of all available lints
+  # and their documentation is published at https://dart.dev/lints.
+  #
+  # Instead of disabling a lint rule for the entire project in the
+  # section below, it can also be suppressed for a single line of code
+  # or a specific dart file by using the `// ignore: name_of_lint` and
+  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
+  # producing the lint.
+  rules:
+    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
+    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+
+    # === CODE ORGANIZATION & IMPORTS ==========================================
+    always_use_package_imports: true # Avoid relative imports across lib/.
+    directives_ordering: true # Keep imports organized.
+    combinators_ordering: true # Consistent show/hide ordering.
+    depend_on_referenced_packages: true # Require pubspec deps for imports.
+    implementation_imports: true # Don’t import from another package’s lib/src/.
+    prefer_relative_imports: false # Prefer package: to keep paths stable.
+
+    # === NAMING & FILE STRUCTURE ==============================================
+    file_names: true # snake_case file names.
+    camel_case_types: true
+    camel_case_extensions: true
+    non_constant_identifier_names: true # Avoid mixedCase for consts, etc.
+    constant_identifier_names: false # Allow UPPER_SNAKE_CASE for consts when desired.
+    no_leading_underscores_for_local_identifiers: true
+
+    # === READABILITY & CONSISTENCY (FORMATTING) ===============================
+    eol_at_end_of_file: true
+    lines_longer_than_80_chars: false # Set to true if your team enforces 80 cols.
+    require_trailing_commas: true # Better diffs, auto-format friendly.
+    curly_braces_in_flow_control_structures: true
+    leading_newlines_in_multiline_strings: true
+    unnecessary_parenthesis: true
+
+    # === TYPE ANNOTATION & NULL-SAFETY ========================================
+    type_annotate_public_apis: true # Public API clarity.
+    always_declare_return_types: false # Let inference work for locals/private.
+    avoid_dynamic_calls: true # Safer than dynamic everywhere.
+    cast_nullable_to_non_nullable: true
+    null_check_on_nullable_type_parameter: true
+    unnecessary_nullable_for_final_variable_declarations: true
+    avoid_types_as_parameter_names: true
+    use_function_type_syntax_for_parameters: true
+
+    # === CORRECTNESS (GENERAL DART) ===========================================
+    await_only_futures: true
+    exhaustive_cases: true # Especially important with sealed classes/enums.
+    only_throw_errors: true # ← keep it here
+    prefer_conditional_assignment: true
+    prefer_if_null_operators: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+    prefer_interpolation_to_compose_strings: true
+    unnecessary_await_in_return: true
+    unnecessary_lambdas: true
+    unnecessary_raw_strings: true
+    unnecessary_string_escapes: true
+    use_string_buffers: true
+    use_rethrow_when_possible: true
+    provide_deprecation_message: true
+    parameter_assignments: true # Avoid reassigning parameters.
+
+    # === PERFORMANCE & EFFICIENCY =============================================
+    prefer_final_fields: true
+    prefer_final_locals: true
+    avoid_redundant_argument_values: true
+    use_is_even_rather_than_modulo: true
+    unnecessary_to_list_in_spreads: true
+    join_return_with_assignment: true
+
+    # === FLUTTER-SPECIFIC BEST PRACTICES ======================================
+    use_key_in_widget_constructors: true # Keys for widgets in collections/conditional trees.
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    sort_child_properties_last: true # Common Flutter style for readability.
+    sized_box_for_whitespace: true
+    use_colored_box: true # Cheaper than Container for color-only.
+    use_decorated_box: true # Cheaper than Container for decoration-only.
+    diagnostic_describe_all_properties: true # For Diagnosticable/Widget debug info.
+    use_build_context_synchronously: true # Catch context use after await.
+    no_logic_in_create_state: true # Keep State creation lean.
+
+    # === API SURFACE & DOCUMENTATION ==========================================
+    package_api_docs: false # Enable to require docs on public APIs.
+    public_member_api_docs: false # Ditto; can be noisy for apps.
+    library_private_types_in_public_api: true # Don’t leak private types.
+
+    # === TESTING & ASSERTIONS ==================================================
+    prefer_asserts_in_initializer_lists: true
+    avoid_returning_null_for_future: true
+    test_types_in_equals: true # equals should compare compatible types.
+    use_named_constants: true
+    use_super_parameters: true # Cleaner constructors in tests and prod.
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
